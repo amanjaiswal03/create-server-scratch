@@ -64,9 +64,12 @@ int main(){
             cout << ("No bytes are there to read");
         }
 
-        string httpMethod = reqInfo.substr(0, reqInfo.find(" ")); // http method is stored before the space
+        string httpMethod = reqInfo.substr(0, reqInfo.find(" ")); // http method is stored before the first space
+        int pos = reqInfo.find(" ");
+        string route = reqInfo.substr(reqInfo.find(" ") + 1, reqInfo.find(" ", pos + 1) );
 
         if (httpMethod == "GET"){
+
 
             //initiating variables to construct the response header
             string myText;
